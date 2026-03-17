@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Lint & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Determine build version
+        id: version
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.1")
+          VERSION="${TAG#v}"
+          COMMIT=$(git rev-parse --short HEAD)
+          BUILD_NUMBER=${{ github.run_number }}
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "commit=$COMMIT" >> "$GITHUB_OUTPUT"
+          echo "build=$BUILD_NUMBER" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn format:check
+      - run: yarn build
+      - name: Zip build artifact
+        run: tar -czf build.tar.gz .next/static .next/BUILD_ID public
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: turmerrific-build-${{ steps.version.outputs.version }}-${{ steps.version.outputs.build }}-${{ steps.version.outputs.commit }}
+          path: build.tar.gz
