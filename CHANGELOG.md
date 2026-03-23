@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.0] — 2026-03-23
+
+### Added
+- `create-turmerrific-starter-kit` CLI package (`npx create-turmerrific-starter-kit my-app`)
+- Monorepo structure with `packages/` directory
+
+### Changed
+- Theme updated to warm gold primary with pure neutral backgrounds
+- README updated with `npx create-turmerrific-starter-kit` quick start
+- Repository URL normalized for npm publishing
+
+### Fixed
+- Include `dist/` in published npm package via `files` field (v1.0.1)
+
 ## [0.4.0] — 2026-03-02
 
 ### Changed
