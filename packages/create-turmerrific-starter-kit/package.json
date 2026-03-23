@@ -7,7 +7,7 @@
     "dist"
   ],
   "bin": {
-    "create-turmerrific-starter-kit": "./dist/index.js"
+    "create-turmerrific-starter-kit": "dist/index.js"
   },
   "keywords": [
     "create",
