@@ -1,8 +1,11 @@
 {
   "name": "create-turmerrific-starter-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a new project with the Turmerrific starter kit",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "create-turmerrific-starter-kit": "./dist/index.js"
   },
