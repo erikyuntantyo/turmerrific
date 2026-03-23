@@ -16,8 +16,8 @@ A modern Next.js 16 starter kit with Tailwind CSS v4, shadcn-style UI components
 ## Quick Start
 
 ```bash
-npx create-turmerrific
-cd turmerrific
+npx create-turmerrific-starter-kit my-app
+cd my-app
 yarn install
 yarn dev
 ```
