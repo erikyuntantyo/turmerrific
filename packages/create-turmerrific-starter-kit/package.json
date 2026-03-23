@@ -1,0 +1,31 @@
+{
+  "name": "create-turmerrific-starter-kit",
+  "version": "1.0.0",
+  "description": "Create a new project with the Turmerrific starter kit",
+  "license": "MIT",
+  "bin": {
+    "create-turmerrific-starter-kit": "./dist/index.js"
+  },
+  "keywords": [
+    "create",
+    "starter",
+    "nextjs",
+    "turmerrific"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erikyuntantyo/turmerrific.git"
+  },
+  "scripts": {
+    "dev": "ncc build ./index.ts -w -o dist/",
+    "build": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@vercel/ncc": "^0.38",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
