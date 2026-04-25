@@ -46,7 +46,9 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={`text-sm font-medium transition-colors ${
-                    pathname === item.href ? "text-primary" : "hover:text-primary"
+                    pathname === item.href || pathname.startsWith(item.href + "/")
+                      ? "text-primary"
+                      : "hover:text-primary"
                   }`}
                 >
                   {item.label}
@@ -99,12 +101,13 @@ export function Header() {
       <nav className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 md:hidden">
         <div className="flex items-center gap-1 rounded-full border bg-black/10 px-3 py-2 shadow-lg backdrop-blur-md dark:bg-white/10">
           {[{ href: "/", label: "Home" }, ...navItems].map((item) => {
-            const isActive = pathname === item.href;
+            const isActive =
+              pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href + "/"));
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`rounded-full px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground"
