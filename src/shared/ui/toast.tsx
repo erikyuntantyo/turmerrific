@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useReducer, useRef } from "react";
+import { createContext, useContext, useEffect, useReducer, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
@@ -126,27 +126,29 @@ export function ToastProvider({
 }) {
   const [toasts, dispatch] = useReducer(toastReducer, []);
 
-  const dismiss = useCallback((id: string) => {
+  const dismiss = (id: string) => {
     dispatch({ type: "DISMISS", id });
-  }, []);
+  };
 
-  const toast = useCallback(
-    (opts: { title: string; description?: string; variant?: ToastVariant; duration?: number }) => {
-      const id = String(++toastCount);
-      dispatch({
-        type: "ADD",
-        toast: {
-          id,
-          title: opts.title,
-          description: opts.description,
-          variant: opts.variant ?? "info",
-          duration: opts.duration ?? 5000,
-        },
-      });
-      return id;
-    },
-    [],
-  );
+  const toast = (opts: {
+    title: string;
+    description?: string;
+    variant?: ToastVariant;
+    duration?: number;
+  }) => {
+    const id = String(++toastCount);
+    dispatch({
+      type: "ADD",
+      toast: {
+        id,
+        title: opts.title,
+        description: opts.description,
+        variant: opts.variant ?? "info",
+        duration: opts.duration ?? 5000,
+      },
+    });
+    return id;
+  };
 
   return (
     <ToastContext.Provider value={{ toasts, toast, dismiss }}>

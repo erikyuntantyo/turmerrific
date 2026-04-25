@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 const listeners = new Set<() => void>();
 
@@ -48,11 +48,11 @@ export function useTheme() {
     }
   }, [isDark]);
 
-  const toggleTheme = useCallback(() => {
+  const toggleTheme = () => {
     const newIsDark = !getSnapshot();
     localStorage.setItem("theme", newIsDark ? "dark" : "light");
     emitChange();
-  }, []);
+  };
 
   return { isDark, toggleTheme };
 }
