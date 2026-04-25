@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <p className="text-muted-foreground text-center text-sm">
-            &copy; {new Date().getFullYear()} {siteConfig.author.name}
+            &copy; 2025 {siteConfig.author.name}
           </p>
 
           <div className="flex items-center justify-center gap-4">

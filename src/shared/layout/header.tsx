@@ -8,7 +8,10 @@ import { faHouse } from "@fortawesome/free-regular-svg-icons";
 import { siteConfig } from "@/shared/config/site.config";
 import { ThemeToggle } from "@/shared/ui/theme-toggle";
 
-const navItems = [{ href: "/about", label: "About" }];
+const navItems = [
+  { href: "/about", label: "About" },
+  { href: "/dashboard", label: "Dashboard" },
+];
 
 function getBreadcrumb(pathname: string): { label: string; href?: string }[] {
   if (pathname === "/") return [];
@@ -28,9 +31,12 @@ export function Header() {
       {/* Desktop Header */}
       <header className="bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 hidden w-full shadow-[0_1px_3px_rgb(0_0_0/0.05)] backdrop-blur md:block">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="hidden items-center gap-2 md:flex">
-            <FontAwesomeIcon icon={faCode} className="text-primary h-5 w-5" />
-            <span className="font-semibold">{siteConfig.name}</span>
+          <Link
+            href="/"
+            className="hidden items-center gap-2 text-xl font-bold tracking-tight md:flex"
+          >
+            <FontAwesomeIcon icon={faCode} className="text-primary" />
+            <span>{siteConfig.name}</span>
           </Link>
 
           <div className="flex items-center gap-6">
@@ -58,12 +64,19 @@ export function Header() {
       {/* Mobile Breadcrumb */}
       <div className="bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-40 border-b backdrop-blur md:hidden">
         <nav aria-label="Breadcrumb" className="flex h-12 items-center gap-1 px-4 text-sm">
-          <Link
-            href="/"
-            className="text-muted-foreground hover:text-foreground flex items-center transition-colors"
-          >
-            <FontAwesomeIcon icon={faHouse} className="h-3.5 w-3.5" />
-          </Link>
+          {breadcrumb.length === 0 ? (
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+              <FontAwesomeIcon icon={faCode} className="text-primary" />
+              <span>{siteConfig.name}</span>
+            </Link>
+          ) : (
+            <Link
+              href="/"
+              className="text-muted-foreground hover:text-foreground flex items-center transition-colors"
+            >
+              <FontAwesomeIcon icon={faHouse} className="h-3.5 w-3.5" />
+            </Link>
+          )}
           {breadcrumb.map((crumb, i) => (
             <span key={i} className="flex items-center gap-1">
               <FontAwesomeIcon

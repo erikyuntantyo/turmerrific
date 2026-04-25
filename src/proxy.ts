@@ -3,7 +3,7 @@ import { verifyTokenSafe } from "@/server/auth/auth.jwt";
 import { AUTH_COOKIE_NAME } from "@/server/auth/auth.cookie";
 import { logger } from "@/server/logging/logger";
 
-const protectedPaths = ["/dashboard", "/users", "/settings"];
+const protectedPaths: string[] = [];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -41,5 +41,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/users/:path*", "/settings/:path*"],
+  matcher: ["/dashboard/:path*"],
 };

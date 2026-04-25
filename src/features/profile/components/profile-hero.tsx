@@ -40,15 +40,13 @@ export function ProfileHero({
                 {name}
               </h1>
 
-              <p className="text-primary animate-fade-in-up mb-3 text-lg font-medium delay-100">
-                {title}
-              </p>
+              <p className="text-primary mb-3 text-lg font-medium">{title}</p>
 
-              <div className="text-muted-foreground animate-fade-in-up mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm delay-200">
+              <div className="text-muted-foreground mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm sm:gap-x-0">
                 <span>{location}</span>
                 {links.map((link) => (
-                  <span key={link.label}>
-                    <span className="hidden sm:inline">|</span>{" "}
+                  <span key={link.label} className="flex items-center">
+                    <span className="mx-2 hidden sm:inline">|</span>
                     <a
                       href={link.href}
                       target="_blank"
@@ -61,11 +59,9 @@ export function ProfileHero({
                 ))}
               </div>
 
-              <p className="text-muted-foreground animate-fade-in-up mb-4 max-w-3xl leading-relaxed delay-300">
-                {bio}
-              </p>
+              <p className="text-muted-foreground mb-4 max-w-3xl leading-relaxed">{bio}</p>
 
-              <div className="animate-fade-in-up delay-400">
+              <div>
                 <PillButton icon={faFileArrowDown} text="Download CV" href={cvHref} download />
               </div>
             </div>

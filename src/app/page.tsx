@@ -24,7 +24,7 @@ export default function Home() {
         <Section className="py-8 md:py-24">
           <Container>
             <div className="max-w-2xl">
-              <span className="border-primary bg-primary/10 text-primary animate-fade-in-up mb-4 inline-block rounded-full border px-4 py-1.5 text-sm font-medium">
+              <span className="animate-fade-in-up mb-4 inline-block rounded-full border border-yellow-500 bg-linear-to-r from-yellow-500/15 to-yellow-600/5 px-3 py-1 text-xs font-medium text-yellow-500 dark:border-yellow-300/50 dark:from-yellow-200/15 dark:to-yellow-300/5 dark:text-yellow-200">
                 Starter Kit
               </span>
 
@@ -32,22 +32,16 @@ export default function Home() {
                 Build Something Great
               </h1>
 
-              <p className="text-muted-foreground animate-fade-in-up mb-6 text-lg delay-200">
+              <p className="animate-fade-in-up mb-6 text-lg text-orange-400 delay-200 dark:text-orange-300">
                 A clean Next.js starter with UI components, dark mode, MDX content, and everything
                 you need to ship fast.
               </p>
 
               <div className="animate-fade-in-up flex gap-3 delay-300">
                 <Link href="/about">
-                  <Button
-                    variant="outline"
-                    className="border-primary text-primary hover:bg-primary group gap-2 hover:text-white"
-                  >
+                  <Button className="gap-2">
                     View About Page
-                    <FontAwesomeIcon
-                      icon={faArrowRight}
-                      className="h-4 w-4 group-hover:text-white"
-                    />
+                    <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
                   </Button>
                 </Link>
               </div>
@@ -59,13 +53,13 @@ export default function Home() {
         <Section>
           <Container>
             <div className="max-w-5xl">
-              <h2 className="animate-fade-in-up mb-2 text-2xl font-bold">What&apos;s Included</h2>
-              <p className="text-muted-foreground animate-fade-in-up mb-8 text-sm delay-100">
+              <h2 className="mb-2 text-2xl font-bold">What&apos;s Included</h2>
+              <p className="text-muted-foreground mb-8 text-sm">
                 Everything you need to start building — nothing you don&apos;t
               </p>
 
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                <Card className="hover-lift animate-fade-in-up p-5 delay-200 md:p-6">
+                <Card className="hover-lift p-5 md:p-6">
                   <h3 className="mb-2 font-semibold">UI Components</h3>
                   <p className="text-muted-foreground text-sm">
                     Button, Card, Input, Badge, Table, Toast, Modal, Tag, and more — all built with
@@ -73,7 +67,7 @@ export default function Home() {
                   </p>
                 </Card>
 
-                <Card className="hover-lift animate-fade-in-up p-5 delay-300 md:p-6">
+                <Card className="hover-lift p-5 md:p-6">
                   <h3 className="mb-2 font-semibold">Dark Mode</h3>
                   <p className="text-muted-foreground text-sm">
                     Light and dark themes out of the box. oklch color palette with zero-chroma
@@ -81,7 +75,7 @@ export default function Home() {
                   </p>
                 </Card>
 
-                <Card className="hover-lift animate-fade-in-up p-5 delay-400 md:p-6">
+                <Card className="hover-lift p-5 md:p-6">
                   <h3 className="mb-2 font-semibold">MDX Content</h3>
                   <p className="text-muted-foreground text-sm">
                     Write pages in MDX with custom components. The About page is a working example
@@ -89,7 +83,7 @@ export default function Home() {
                   </p>
                 </Card>
 
-                <Card className="hover-lift animate-fade-in-up p-5 delay-500 md:p-6">
+                <Card className="hover-lift p-5 md:p-6">
                   <h3 className="mb-2 font-semibold">SEO Ready</h3>
                   <p className="text-muted-foreground text-sm">
                     Centralized metadata generation, robots.txt, and sitemap. Every page gets proper
@@ -97,7 +91,7 @@ export default function Home() {
                   </p>
                 </Card>
 
-                <Card className="hover-lift animate-fade-in-up p-5 delay-500 md:p-6">
+                <Card className="hover-lift p-5 md:p-6">
                   <h3 className="mb-2 font-semibold">Responsive Layout</h3>
                   <p className="text-muted-foreground text-sm">
                     Header with mobile bottom navigation, footer, and section components. Works on
@@ -105,7 +99,7 @@ export default function Home() {
                   </p>
                 </Card>
 
-                <Card className="hover-lift animate-fade-in-up p-5 delay-500 md:p-6">
+                <Card className="hover-lift p-5 md:p-6">
                   <h3 className="mb-2 font-semibold">Developer Experience</h3>
                   <p className="text-muted-foreground text-sm">
                     TypeScript strict mode, ESLint, Prettier, and Turbopack. Clean code from the
@@ -121,12 +115,12 @@ export default function Home() {
         <Section>
           <Container>
             <div className="max-w-5xl">
-              <h2 className="animate-fade-in-up mb-2 text-2xl font-bold">Tech Stack</h2>
-              <p className="text-muted-foreground animate-fade-in-up mb-8 text-sm delay-100">
+              <h2 className="mb-2 text-2xl font-bold">Tech Stack</h2>
+              <p className="text-muted-foreground mb-8 text-sm">
                 Modern tools, minimal dependencies
               </p>
 
-              <div className="animate-fade-in-up flex flex-wrap gap-2 delay-200">
+              <div className="flex flex-wrap gap-2">
                 {[
                   "Next.js 16",
                   "React 19",
@@ -134,7 +128,7 @@ export default function Home() {
                   "Tailwind CSS v4",
                   "MDX",
                   "Font Awesome 7",
-                  "Geist Font",
+                  "Inter + JetBrains Mono",
                 ].map((tech) => (
                   <Tag key={tech} text={tech} variant="primary" />
                 ))}
