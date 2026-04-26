@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.6.0] — 2026-04-25
+
+### Added
+- Dashboard admin page with collapsible sidebar, sticky breadcrumb header, and mobile bottom nav
+- Overview page with stat cards, area charts (Users & Sessions, Revenue via recharts), and recent activity list
+- Users page with data table (Avatar, Badge, delete with modal confirmation and toast)
+- Forms page with Login and Register form previews (tab switcher, loading states, Google OAuth button)
+- Settings page with form inputs and save-triggers-toast interaction
+- Sidebar CSS tokens (`--sidebar-*`) for semantic sidebar styling
+- "Dashboard" link in public header navigation
+- Timeline component (UI count → 15)
+
+### Changed
+- Light mode theme: warm cream background (hue 80), stronger text contrast, visible borders, no blue tint
+- Reduced animations: kept only on hero elements, removed cascade from cards/sections
+- Removed dead CSS: fade-in, subtle-float, slide-in-left keyframes and delay-400/500/600
+- Removed unused CardFooter export from card.tsx
+- Home page hero badge and subtitle synced with website color style
+- Tech Stack tag corrected from "Geist Font" to "Inter + JetBrains Mono"
+- siteConfig description updated to match home page content
+- Login divider text: "Or continue with" → "OR"
+- ESLint config: ignore packages/ directory
+- Proxy simplified to single `/dashboard/:path*` matcher (no auth gate for demo)
+
+### Fixed
+- Theme toggle: `cursor-pointer` on both button and icon variants
+- Mobile floating navigation home icon: outlined `faHouse` from `free-regular-svg-icons` (matches public header)
+- Dashboard breadcrumb home icon: outlined `faHouse` matching public header
+- Dashboard mobile floating nav: include About + Dashboard text labels matching public floating nav
+- Sidebar header logo: matches public header style (`text-xl font-bold tracking-tight`, `text-primary` icon, `siteConfig.name`)
+- Mobile sidebar header: uses `text-sidebar-foreground` instead of `text-foreground`
+- Footer copyright year: hardcoded to 2025
+
 ## [0.5.0] — 2026-03-23
 
 ### Added
