@@ -15,7 +15,16 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
 }
 
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
-  return <thead data-slot="table-header" className={cn("bg-panel-header [&_tr]:border-b [&_tr:first-child>th:first-child]:rounded-tl-lg [&_tr:first-child>th:last-child]:rounded-tr-lg", className)} {...props} />;
+  return (
+    <thead
+      data-slot="table-header"
+      className={cn(
+        "bg-panel-header [&_tr]:border-b [&_tr:first-child>th:first-child]:rounded-tl-lg [&_tr:first-child>th:last-child]:rounded-tr-lg",
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {

@@ -79,7 +79,7 @@ function AvatarPlaceholder({ className }: { className?: string }) {
   return (
     <div
       data-slot="avatar-fallback"
-      className={cn("flex h-full w-full items-center justify-center bg-muted", className)}
+      className={cn("bg-muted flex h-full w-full items-center justify-center", className)}
     >
       <svg
         viewBox="0 0 24 24"
@@ -88,10 +88,7 @@ function AvatarPlaceholder({ className }: { className?: string }) {
         className="h-full w-full"
       >
         <circle cx="12" cy="8" r="4" className="fill-muted-foreground" />
-        <path
-          d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8"
-          className="fill-muted-foreground"
-        />
+        <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" className="fill-muted-foreground" />
       </svg>
     </div>
   );
