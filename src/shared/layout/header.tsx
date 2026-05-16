@@ -65,7 +65,7 @@ export function Header() {
 
       {/* Mobile Breadcrumb */}
       <div className="bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-40 border-b backdrop-blur md:hidden">
-        <nav aria-label="Breadcrumb" className="flex h-12 items-center gap-1 px-4 text-sm">
+        <nav aria-label="Breadcrumb" className="flex h-12 min-w-0 items-center gap-1 px-4 text-sm">
           {breadcrumb.length === 0 ? (
             <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
               <FontAwesomeIcon icon={faCode} className="text-primary" />
@@ -74,26 +74,30 @@ export function Header() {
           ) : (
             <Link
               href="/"
-              className="text-muted-foreground hover:text-foreground flex items-center transition-colors"
+              className="text-muted-foreground hover:text-foreground flex shrink-0 items-center transition-colors"
             >
               <FontAwesomeIcon icon={faHouse} className="h-3.5 w-3.5" />
             </Link>
           )}
-          {breadcrumb.map((crumb, i) => (
-            <span key={i} className="flex items-center gap-1">
-              <FontAwesomeIcon
-                icon={faChevronRight}
-                className="text-muted-foreground/50 h-2.5 w-2.5"
-              />
+          {breadcrumb.map((crumb, i) => {
+            const isLast = i === breadcrumb.length - 1;
+            return (
               <span
-                className={
-                  i === breadcrumb.length - 1 ? "text-foreground" : "text-muted-foreground"
-                }
+                key={i}
+                className={`flex items-center gap-1 ${isLast ? "min-w-0" : "shrink-0"}`}
               >
-                {crumb.label}
+                <FontAwesomeIcon
+                  icon={faChevronRight}
+                  className="text-muted-foreground/50 h-2.5 w-2.5 shrink-0"
+                />
+                <span
+                  className={`${isLast ? "text-foreground truncate" : "text-muted-foreground"}`}
+                >
+                  {crumb.label}
+                </span>
               </span>
-            </span>
-          ))}
+            );
+          })}
         </nav>
       </div>
 
