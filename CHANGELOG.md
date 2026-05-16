@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.1] — 2026-05-16
+
+### Added
+- `LICENSE` (MIT, © 2026 Erik Yuntantyo)
+- `NOTICE.md` — shadcn/ui attribution (Copyright © 2023 shadcn, MIT) covering the verbatim-derived files: `button.tsx`, `badge.tsx`, `input.tsx`, `label.tsx`, `card.tsx`, `skeleton.tsx`, `avatar.tsx` (Avatar/AvatarImage/AvatarFallback structure), `table.tsx`, and `cn()` helper in `utils.ts`
+- `license: "MIT"` and `author: "Erik Yuntantyo"` fields in `package.json`
+- `README.md` — License link to `./LICENSE` and Third-Party Attributions section linking `./NOTICE.md`
+
 ## [0.7.0] — 2026-05-16
 
 ### Added
