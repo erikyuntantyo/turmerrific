@@ -70,4 +70,8 @@ Next.js 16 | React 19 | TypeScript | Tailwind CSS v4 | MDX | NextAuth.js | Zod |
 
 ## License
 
-MIT
+MIT — see [LICENSE](./LICENSE).
+
+## Third-Party Attributions
+
+Several UI components are derived from [shadcn/ui](https://github.com/shadcn-ui/ui) (MIT, © 2023 shadcn). See [NOTICE.md](./NOTICE.md) for the full list of files and the original license text.
