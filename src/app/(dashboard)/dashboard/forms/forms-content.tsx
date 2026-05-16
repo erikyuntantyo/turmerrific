@@ -111,7 +111,9 @@ function LoginPreview() {
 
         <p className="text-muted-foreground mt-6 text-center text-sm">
           Don&apos;t have an account?{" "}
-          <button type="button" className="text-primary hover:underline">Sign up</button>
+          <button type="button" className="text-primary hover:underline">
+            Sign up
+          </button>
         </p>
       </CardContent>
     </Card>
@@ -190,7 +192,9 @@ function RegisterPreview() {
 
         <p className="text-muted-foreground mt-6 text-center text-sm">
           Already have an account?{" "}
-          <button type="button" className="text-primary hover:underline">Sign in</button>
+          <button type="button" className="text-primary hover:underline">
+            Sign in
+          </button>
         </p>
       </CardContent>
     </Card>
