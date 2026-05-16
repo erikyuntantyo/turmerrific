@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.7.0] — 2026-05-16
+
+### Added
+- Multi-stage Dockerfile (`deps → builder → runner`) with Next.js standalone output, non-root `nextjs:nodejs` (UID/GID 1001), Node 24 Alpine base, `/api/health` healthcheck
+- `.dockerignore` to keep image lean
+- `output: "standalone"` in `next.config.ts`
+- Global `cursor: pointer` base layer rule in `globals.css` (covers `button`, `[role=button]`, `a[href]`, `label[for]`, `summary`, `[type=button|submit|reset]`) — restores Tailwind v3 default that v4 dropped
+- `resolutions.postcss ^8.5.10` to evict vulnerable transitive
+
+### Changed
+- Bumped `next ^16.0.10 → ^16.2.6`
+- Dropped per-component `cursor-pointer` class from `button.tsx`, `theme-toggle.tsx`, `login-content.tsx`, `forms-content.tsx`, `sidebar.tsx` — global rule now covers
+- CI workflow: removed `pull_request` trigger (template repo, push-driven publish flow)
+
+### Fixed
+- Mobile breadcrumb truncation in `shared/layout/header.tsx` — `min-w-0` on nav, `shrink-0` on chevron/home icon, `truncate` on last crumb (sync w/ website v0.3.1)
+
 ## [0.6.0] — 2026-04-25
 
 ### Added
