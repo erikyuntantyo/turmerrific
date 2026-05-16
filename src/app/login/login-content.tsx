@@ -116,9 +116,9 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Password</Label>
-                  <span className="text-primary cursor-pointer text-sm hover:underline">
+                  <button type="button" className="text-primary text-sm hover:underline">
                     Forgot password?
-                  </span>
+                  </button>
                 </div>
                 <Input
                   id="password"
@@ -166,7 +166,7 @@ export default function LoginPage() {
 
             <p className="text-muted-foreground mt-6 text-center text-sm">
               Don&apos;t have an account?{" "}
-              <span className="text-primary cursor-pointer hover:underline">Sign up</span>
+              <button type="button" className="text-primary hover:underline">Sign up</button>
             </p>
           </CardContent>
         </Card>

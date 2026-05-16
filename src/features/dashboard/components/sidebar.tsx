@@ -66,7 +66,7 @@ function SidebarNav({
             <div className="flex h-12 w-full items-center justify-center">
               <button
                 onClick={onToggleCollapse}
-                className="text-sidebar-foreground/70 hover:text-sidebar-foreground cursor-pointer transition-colors"
+                className="text-sidebar-foreground/70 hover:text-sidebar-foreground transition-colors"
                 aria-label="Expand sidebar"
               >
                 <FontAwesomeIcon icon={faAnglesRight} className="h-3 w-3" />
@@ -83,7 +83,7 @@ function SidebarNav({
               </Link>
               <button
                 onClick={onToggleCollapse}
-                className="text-sidebar-foreground/70 hover:text-sidebar-foreground hidden cursor-pointer transition-colors md:block"
+                className="text-sidebar-foreground/70 hover:text-sidebar-foreground hidden transition-colors md:block"
                 aria-label="Collapse sidebar"
               >
                 <FontAwesomeIcon icon={faAnglesLeft} className="h-3 w-3" />
