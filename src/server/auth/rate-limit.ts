@@ -25,7 +25,8 @@ function cleanup(): void {
   }
 }
 
-setInterval(cleanup, CLEANUP_INTERVAL_MS).unref();
+// jsdom (test env) returns a plain timer without .unref — guard for cross-env safety
+setInterval(cleanup, CLEANUP_INTERVAL_MS).unref?.();
 
 export function checkRateLimit(ip: string): RateLimitResult {
   const now = Date.now();
