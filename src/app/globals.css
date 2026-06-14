@@ -100,6 +100,13 @@
   --sh-keyword: #f47067;
   --sh-comment: #a19595;
   --panel-header: oklch(0.93 0.005 80 / 50%);
+
+  /* dashboard metric accents — light (more saturated) */
+  --metric-red: oklch(0.62 0.21 25);
+  --metric-green: oklch(0.62 0.16 150);
+  --metric-blue: oklch(0.58 0.18 250);
+  --metric-yellow: oklch(0.76 0.16 90);
+  --metric-orange: oklch(0.68 0.18 55);
 }
 
 .dark {
@@ -152,6 +159,13 @@
   --sh-keyword: #ff7b72;
   --sh-comment: #8b949e;
   --panel-header: oklch(0.3095 0.0266 266.7132 / 80%);
+
+  /* dashboard metric accents — dark (lighter, lower saturation) */
+  --metric-red: oklch(0.68 0.16 25);
+  --metric-green: oklch(0.7 0.13 150);
+  --metric-blue: oklch(0.68 0.14 250);
+  --metric-yellow: oklch(0.8 0.13 90);
+  --metric-orange: oklch(0.72 0.14 55);
 }
 
 @layer base {
@@ -163,6 +177,20 @@
     @apply bg-background text-foreground;
   }
 
+  /* Vertical center-out gradient, full-width on lg+ only. */
+  @media (min-width: 1024px) {
+    body {
+      background-image: linear-gradient(
+        180deg,
+        var(--background) 0%,
+        color-mix(in oklch, var(--primary) 6%, var(--background)) 50%,
+        var(--background) 100%
+      );
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  }
+
   button:not(:disabled),
   [role="button"]:not(:disabled),
   a[href],
@@ -172,6 +200,47 @@
   [type="submit"]:not(:disabled),
   [type="reset"]:not(:disabled) {
     cursor: pointer;
+  }
+
+  /* Global button hover: dark drop-shadow in light mode, gold glow in dark mode. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  .pill-button,
+  [data-slot="card"],
+  [data-slot="badge"] {
+    transition: box-shadow 0.2s ease;
+  }
+
+  button:not(:disabled):hover,
+  [role="button"]:not(:disabled):hover,
+  [type="button"]:not(:disabled):hover,
+  [type="submit"]:not(:disabled):hover,
+  [type="reset"]:not(:disabled):hover,
+  .pill-button:hover,
+  [data-slot="card"]:hover,
+  [data-slot="badge"]:hover {
+    box-shadow: 0 4px 14px oklch(0 0 0 / 22%);
+  }
+
+  .dark button:not(:disabled):hover,
+  .dark [role="button"]:not(:disabled):hover,
+  .dark [type="button"]:not(:disabled):hover,
+  .dark [type="submit"]:not(:disabled):hover,
+  .dark [type="reset"]:not(:disabled):hover,
+  .dark .pill-button:hover,
+  .dark [data-slot="card"]:hover,
+  .dark [data-slot="badge"]:hover {
+    box-shadow: 0 0 18px color-mix(in oklch, var(--primary) 55%, transparent);
+  }
+
+  /* Flat controls (theme toggle, tabs, catalog preview/code tabs) opt out of the button hover glow.
+     !important so a single class beats the higher-specificity [type="button"]/.dark glow selectors
+     regardless of which element/attrs the control uses. */
+  .no-hover-glow:hover {
+    box-shadow: none !important;
   }
 
   .svg-inline--fa {
@@ -347,5 +416,9 @@
 
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+  box-shadow: 0 4px 14px oklch(0 0 0 / 22%);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 0 18px color-mix(in oklch, var(--primary) 55%, transparent);
 }

@@ -25,7 +25,7 @@ export function PillButton({ icon, text, href, download, external, className }: 
   );
 
   const baseClass = cn(
-    "inline-flex items-center h-9 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium",
+    "pill-button inline-flex items-center h-9 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all text-sm font-medium",
     className,
   );
 

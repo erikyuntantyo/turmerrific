@@ -75,7 +75,7 @@ export function Tabs({
                 onKeyDown={(e) => onKey(e, i)}
                 onClick={() => setActive(tab.id)}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+                  "no-hover-glow inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
                   isActive
                     ? "bg-card text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground",
@@ -127,7 +127,7 @@ export function Tabs({
                 onKeyDown={(e) => onKey(e, i)}
                 onClick={() => setActive(tab.id)}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-t-md border border-b-0 px-4 py-2 text-sm font-medium transition-colors",
+                  "no-hover-glow inline-flex items-center gap-2 rounded-t-md border border-b-0 px-4 py-2 text-sm font-medium transition-colors",
                   isActive
                     ? "bg-card text-foreground border-border"
                     : "text-muted-foreground hover:text-foreground border-transparent",
@@ -168,7 +168,7 @@ export function Tabs({
               onKeyDown={(e) => onKey(e, i)}
               onClick={() => setActive(tab.id)}
               className={cn(
-                "-mb-px inline-flex items-center gap-2 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
+                "no-hover-glow -mb-px inline-flex items-center gap-2 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
                 isActive
                   ? "border-primary text-foreground"
                   : "text-muted-foreground hover:text-foreground border-transparent",
