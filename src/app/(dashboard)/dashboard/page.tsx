@@ -1,8 +1,15 @@
 import { generatePageMetadata } from "@/server/seo/seo";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
+import { Card, CardContent } from "@/shared/ui/card";
 import { Badge } from "@/shared/ui/badge";
 import { statCards, recentActivity } from "@/features/dashboard/server/mock-data";
 import { OverviewChart } from "@/features/dashboard/components/overview-chart";
+
+const metricAccents = [
+  "var(--metric-blue)",
+  "var(--metric-green)",
+  "var(--metric-orange)",
+  "var(--metric-yellow)",
+];
 
 export const dynamic = "force-static";
 
@@ -21,21 +28,29 @@ export default function DashboardPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {statCards.map((stat) => (
-          <Card key={stat.title}>
-            <CardHeader>
-              <CardTitle className="text-muted-foreground text-sm font-medium">
-                {stat.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">{stat.value}</p>
-              <Badge variant={stat.trend === "up" ? "default" : "secondary"} className="mt-2">
-                {stat.change}
-              </Badge>
-            </CardContent>
-          </Card>
-        ))}
+        {statCards.map((stat, i) => {
+          const accent = metricAccents[i % metricAccents.length];
+          return (
+            <Card
+              key={stat.title}
+              className="gap-0 py-3"
+              style={{
+                backgroundColor: `color-mix(in oklch, ${accent} 14%, var(--card))`,
+                borderColor: `color-mix(in oklch, ${accent} 30%, var(--border))`,
+              }}
+            >
+              <CardContent>
+                <p className="text-muted-foreground text-xs font-medium">{stat.title}</p>
+                <div className="mt-1.5 flex items-center justify-between gap-2">
+                  <p className="text-xl font-bold">{stat.value}</p>
+                  <Badge variant={stat.trend === "up" ? "default" : "secondary"}>
+                    {stat.change}
+                  </Badge>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
 
       {/* Charts */}
