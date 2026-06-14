@@ -59,7 +59,7 @@ export function ProfileHero({
                 ))}
               </div>
 
-              <p className="text-muted-foreground mb-4 max-w-3xl leading-relaxed">{bio}</p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">{bio}</p>
 
               <div>
                 <PillButton icon={faFileArrowDown} text="Download CV" href={cvHref} download />
