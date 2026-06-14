@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.2] — 2026-06-14
+
+### Fixed
+- Profile bio drops its `max-w-3xl` cap — uses the page width instead of wrapping narrow.
+
 ## [1.1.1] — 2026-06-14
 
 ### Fixed
