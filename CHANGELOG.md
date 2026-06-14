@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.1] — 2026-06-14
+
+### Fixed
+- Sidebar collapse/expand/close icon buttons now opt out of the button hover glow (`no-hover-glow`) — they read flat like the header theme toggle instead of showing the gold glow on hover.
+
 ## [1.1.0] — 2026-06-14
 
 ### Added
