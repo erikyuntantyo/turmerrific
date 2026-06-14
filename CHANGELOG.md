@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.1.0] — 2026-06-14
+
+### Added
+- Shared `table-pagination` primitive (`shared/ui/table-pagination.tsx`) — `usePagination` hook, `TablePagination` (page-size select + "Showing [10/25/100] of N" + windowed numbered pager), `FilterPanel`, `DataTable` wrapper (optional `toolbar` + `pagination`), `selectClassName`, `pageItems`
+- `EditUserModal` (`features/dashboard/components/edit-user-modal.tsx`) — edit name/email/role/status via keyed form (no setState-in-effect)
+- `--metric-{red,green,blue,yellow,orange}` accent tokens in `globals.css` (light + dark) — previously website-only
+
+### Changed
+- `ThemeToggle` icon variant flattened — gold `hover:text-primary`, no `rounded-full`, no glow; main header → `variant="icon"`
+- `Tabs` — all variants (underline/pill/bordered) opt out of the button hover glow
+- Users table: ghost icon row actions (edit→`EditUserModal`, delete now removes the row), stateful rows
+- Dashboard overview stat cards → metric-accent tint (`color-mix` bg 14% + border 30%)
+
+### Fixed
+- `.no-hover-glow:hover { box-shadow: none !important }` opt-out — **`!important`** is required to beat the higher-specificity `[type="button"]:not(:disabled):hover` (and `.dark`) glow selectors that `type="button"` controls match
+
+## [1.0.0] — 2026-05-18
+
+### Added
+- Jest 30 scaffolding — `next/jest` async wrapper (SWC compiles jose's ESM), jsdom + node env split per suite, root `tests/` tree mirroring `src/`
+- 50 P0 unit cases across 13 suites — utils, hooks, env validation, auth (cookie/jwt/guard/rate-limit), auth.service, API routes (health/login/logout), `proxy.ts`
+- 70% global coverage threshold in `jest.config.ts`
+- README Testing section (scope + intentional gaps)
+
+### Changed
+- File-scoped `tests/**` ESLint override disables `@typescript-eslint/no-require-imports` (needed for `jest.resetModules()` + `require()` workflow)
+
+### Fixed
+- Guard `setInterval().unref?.()` in `rate-limit.ts` for jsdom cross-env safety (optional chaining is a no-op in Node prod)
+
+## [0.7.2] — 2026-05-16
+
+### Added
+- 7 shared UI primitives mirrored from website: `Dropdown`, `Tabs`, `Accordion`, `Calendar`, `DatePicker`, `TimePicker`, `SearchInput` + `useDebounced` hook
+
 ## [0.7.1] — 2026-05-16
 
 ### Added
