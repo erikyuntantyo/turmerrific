@@ -243,6 +243,17 @@
     box-shadow: none !important;
   }
 
+  /* Opt-in card gradient: add `card-gradient` to any surface for a subtle vertical tint
+     from the bottom. Uses --foreground, so it auto-inverts — lighter from the bottom in dark
+     mode, darker from the bottom in light. */
+  .card-gradient {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in oklch, var(--foreground) 5%, transparent),
+      transparent 60%
+    );
+  }
+
   .svg-inline--fa {
     display: inline-block;
     height: 1em;
