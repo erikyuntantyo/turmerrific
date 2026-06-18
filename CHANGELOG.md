@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.0] — 2026-06-18
+
+### Added
+- `card-gradient` opt-in utility class in `globals.css` — adds a subtle vertical gradient tinted from the bottom; uses `--foreground` so it auto-inverts (lighter from the bottom in dark mode, darker in light). Ships unapplied; add the class to any surface to opt in.
+
 ## [1.1.2] — 2026-06-14
 
 ### Fixed
