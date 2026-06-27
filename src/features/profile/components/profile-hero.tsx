@@ -1,5 +1,6 @@
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { PillButton } from "@/shared/ui/pill-button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/shared/ui/button";
 import { Section, Container } from "@/shared/ui/section";
 import { Avatar, AvatarImage } from "@/shared/ui/avatar";
 
@@ -62,7 +63,12 @@ export function ProfileHero({
               <p className="text-muted-foreground mb-4 leading-relaxed">{bio}</p>
 
               <div>
-                <PillButton icon={faFileArrowDown} text="Download CV" href={cvHref} download />
+                <a href={cvHref} download>
+                  <Button className="gap-2">
+                    <FontAwesomeIcon icon={faFileArrowDown} className="h-4 w-4" />
+                    Download CV
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

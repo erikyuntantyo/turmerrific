@@ -1,5 +1,6 @@
 import { faEnvelope, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-import { PillButton } from "@/shared/ui/pill-button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/shared/ui/button";
 import { Card } from "@/shared/ui/card";
 import { Section, Container } from "@/shared/ui/section";
 
@@ -19,13 +20,18 @@ export function OpportunityCard({ title, description, email, calLink }: Opportun
             <h2 className="mb-2 text-lg font-bold">{title}</h2>
             <p className="text-muted-foreground mb-4 text-sm">{description}</p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <PillButton icon={faEnvelope} text={email} href={`mailto:${email}`} />
-              <PillButton
-                icon={faCalendarDays}
-                text={calLink.replace("https://", "")}
-                href={calLink}
-                external
-              />
+              <a href={`mailto:${email}`}>
+                <Button className="gap-2">
+                  <FontAwesomeIcon icon={faEnvelope} className="h-4 w-4" />
+                  {email}
+                </Button>
+              </a>
+              <a href={calLink} target="_blank" rel="noopener noreferrer">
+                <Button className="gap-2">
+                  <FontAwesomeIcon icon={faCalendarDays} className="h-4 w-4" />
+                  {calLink.replace("https://", "")}
+                </Button>
+              </a>
             </div>
           </Card>
         </div>
