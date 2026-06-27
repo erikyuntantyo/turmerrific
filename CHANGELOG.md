@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.1] — 2026-06-27
+
+### Changed
+- Profile CTAs use the shared `<Button>` (icon-in-front) instead of `PillButton` — `ProfileHero` Download CV + `OpportunityCard` email/calendar links now match the home-page button style.
+
 ## [1.2.0] — 2026-06-18
 
 ### Added
